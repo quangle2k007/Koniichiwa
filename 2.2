@@ -1,0 +1,47 @@
+#include <iostream>
+#include <iomanip> // Thư viện để định dạng số thập phân và thời gian
+#include <cmath>   // Thư viện để dùng hàm pow (lũy thừa)
+
+using namespace std;
+
+int main() {
+    // --- Câu 1: Tính thể tích hình cầu ---
+    double r = 5.0;
+    double pi = 3.14159;
+    double volume = (4.0 / 3.0) * pi * pow(r, 3);
+    
+    cout << "Cau 1: " << fixed << setprecision(2) << volume << endl;
+
+    // --- Câu 2: Tính tổng chi phí mua sách ---
+    double cover_price = 24.95;
+    double discount_price = cover_price * 0.6;
+    // Cuốn đầu 3$, 59 cuốn sau mỗi cuốn 0.75$
+    double shipping = 3.0 + 59 * 0.75; 
+    double total_cost = 60 * discount_price + shipping;
+    
+    cout << "Cau 2: " << fixed << setprecision(2) << total_cost << endl;
+
+    // --- Câu 3: Tính thời gian hoàn thành ---
+    int start_hour = 6, start_minute = 52;
+
+    int easy_pace = 8 * 60 + 15; // 8:15 đổi ra giây
+    int tempo = 7 * 60 + 12;     // 7:12 đổi ra giây
+
+    // Tổng thời gian chạy (giây): 1 dặm easy + 3 dặm tempo + 1 dặm easy
+    int total_run_seconds = easy_pace + 3 * tempo + easy_pace;
+
+    // Tổng thời gian tính từ lúc 00:00:00 (đổi hết ra giây)
+    int total_seconds = (start_hour * 3600) + (start_minute * 60) + total_run_seconds;
+
+    int hour = total_seconds / 3600;
+    int minute = (total_seconds % 3600) / 60;
+    int second = total_seconds % 60;
+
+    // In theo định dạng HH:MM:SS (ví dụ 07:30:06)
+    cout << "Cau 3: " 
+         << setfill('0') << setw(2) << hour << ":" 
+         << setfill('0') << setw(2) << minute << ":" 
+         << setfill('0') << setw(2) << second << endl;
+
+    return 0;
+}
