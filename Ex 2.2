@@ -1,0 +1,42 @@
+import math
+
+def solve1():
+    # Tính thể tích hình cầu r = 5
+    r = 5
+    pi = 3.14  # Bạn dùng 3.14 trong C++, nhưng math.pi sẽ chính xác hơn
+    volume = (4 * (pi * pow(r, 3))) / 3
+    print(f"{volume:.2f}")
+
+def solve2():
+    # Tính chi phí nhập sách
+    cover = 24.95
+    disc_price = cover * 0.6
+    ship = 3 + (59 * 0.75)
+    total_cost = (disc_price * 60) + ship
+    print(f"{total_cost:.2f}")
+
+def solve3():
+    # Tính thời gian về nhà (đổi hết ra giây)
+    # 6:52:00 -> giây
+    st = (6 * 3600) + (52 * 60)
+    
+    easy = (8 * 60) + 15
+    tempo = (7 * 60) + 12
+    
+    # Tổng thời gian chạy (2 dặm easy, 3 dặm tempo)
+    tong_seconds = 2 * easy + 3 * tempo
+    
+    end_time = st + tong_seconds
+    
+    # Chuyển ngược từ giây ra Giờ:Phút
+    hours = end_time // 3600
+    minutes = (end_time % 3600) // 60
+    
+    print(f"{hours}:{minutes:02d}")
+
+# Hàm main (lin)
+if __name__ == "__main__":
+    solve1()
+    solve2()
+    solve3()
+
