@@ -1,25 +1,19 @@
 import time
 
-# Lấy dữ liệu thô từ hệ thống
 total_seconds = time.time()
 
-# Định nghĩa các hằng số thời gian
 SECONDS_IN_DAY = 24 * 60 * 60
 SECONDS_IN_HOUR = 60 * 60
 SECONDS_IN_MINUTE = 60
 
-# Tính toán số ngày
 days = int(total_seconds // SECONDS_IN_DAY)
 
-# Tính toán số giây còn lại trong ngày hiện tại
 remaining_seconds = total_seconds % SECONDS_IN_DAY
 
-# Tính toán Giờ, Phút, Giây
 hours = int(remaining_seconds // SECONDS_IN_HOUR)
 minutes = int((remaining_seconds % SECONDS_IN_HOUR) // SECONDS_IN_MINUTE)
 seconds = int(remaining_seconds % SECONDS_IN_MINUTE)
 
-# Hiển thị kết quả
 print("-" * 30)
 print(f"Số ngày kể từ Epoch: {days}")
 print(f"Thời gian hiện tại (GMT): {hours:02d}:{minutes:02d}:{seconds:02d}")
