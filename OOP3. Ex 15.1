@@ -1,0 +1,36 @@
+class Point:
+    """Biểu diễn một điểm trong không gian 2D."""
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+class Rectangle:
+    """Biểu diễn một hình chữ nhật."""
+    def __init__(self, width=0, height=0, corner=None):
+        self.width = width
+        self.height = height
+class Circle:
+    def __init__(self, center=None, radius=0):
+        self.center = center if center else Point(0, 0)
+        self.radius = radius 
+def distance_between_points(p1, p2):
+    return math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2)
+def point_in_circle(circle, point):
+    return d <= circle.radius
+def rect_in_circle(circle, rect):
+    p1 = rect.corner 
+    p2 = Point(p1.x + rect.width, p1.y) 
+    p3 = Point(p1.x, p1.y + rect.height)
+    p4 = Point(p1.x + rect.width, p1.y + rect.height)    
+    return (point_in_circle(circle, p1) and 
+            point_in_circle(circle, p2) and 
+            point_in_circle(circle, p3) and 
+            point_in_circle(circle, p4))    
+def rect_circle_overlap(circle, rect):
+    p1 = rect.corner
+    p2 = Point(p1.x + rect.width, p1.y)
+    p3 = Point(p1.x, p1.y + rect.height)
+    p4 = Point(p1.x + rect.width, p1.y + rect.height)
+    
+    if (point_in_circle(circle, p1) or point_in_circle(circle, p2) or 
+        point_in_circle(circle, p3) or point_in_circle(circle, p4)):
+        return True                
