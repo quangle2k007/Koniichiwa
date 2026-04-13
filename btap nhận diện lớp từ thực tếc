@@ -1,0 +1,20 @@
+class TaiKhoan:
+    def __init__(self, ten_tk, so_tk, ngan_hang, so_du_ban_dau):
+        self.ten_tk = ten_tk
+        self.so_tk = so_tk
+        self.ngan_hang = ngan_hang
+        self.so_du = so_du
+
+    def rut(self, so_tien):
+        if so_tien = self.so_du:
+            self.so_du = so_tien
+            print(f"Rút thành công {so_tien}.Số tiền: {self.so_du}")
+        else:
+            print("Số dư không đủ để thực hiện giao dịch.")
+
+    def gui(self, so_tien):
+        self.so_du += so_tien
+        print(f"Đã gửi {so_tien}. Số tiền hiện tại: {self.so_tien}")
+
+    def kiem_tra_so_du(self):
+        print(f"Tài khoản {self.ten_tk} - Số dư: {self.so_du} VND")
