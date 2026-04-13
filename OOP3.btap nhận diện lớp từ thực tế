@@ -1,0 +1,14 @@
+class ConCho
+    def __init__(self, ten, mau_sac, giong, cam_xuc ) :
+        self . ten = ten
+        self . mau_sac = mau_sac
+        self . giong = giong
+        self . cam_xuc = cam_xuc
+    def sua(self) : 
+        print(f"{self . ten} đang: sua!")  
+    def vay_duoi(self)
+        print(f"{ self . ten} đang: Vẫy đuôi.")   
+    def an(self, thuc_an):
+        print(f"{self.ten} đang: ăn .") 
+    def chay(self):
+        print(f"{self.ten} đang: chạy.")    
