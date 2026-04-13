@@ -12,3 +12,22 @@ class ConCho
         print(f"{self.ten} đang: ăn .") 
     def chay(self):
         print(f"{self.ten} đang: chạy.")    
+class Oto:
+    def __init__(self, hang, kich_thuoc, mau, gia):
+        self.hang = hang
+        self.kich_thuoc = kich_thuoc
+        self.mau = mau
+        self.gia = gia
+        self.van_toc = 0
+
+    def tang_toc(self, luong_tang):
+        self.van_toc += luong_tang
+        print(f"Xe {self.hang} tăng tốc  {self.van_toc} km/h.")
+
+    def giam_toc(self, luong_giam):
+        self.van_toc = max(0, self.van_toc - luong_giam)
+        print(f"Xe {self.hang} giảm tốc xuống còn {self.van_toc} km/h.")
+
+    def dam(self):
+        self.van_toc = 0
+        print(f" Xe {self.hang} đã dừng lại .")
