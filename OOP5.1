@@ -1,0 +1,39 @@
+class HangHoa:
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia):
+        self.ma_hang = ma_hang
+        self.ten_hang = ten_hang
+        self.nha_sx = nha_sx
+        self.gia = gia
+
+    def hien_thi_thong_tin(self):
+        return f"Mã: {self.ma_hang} | Tên: {self.ten_hang} | NSX: {self.nha_sx} | Giá: {self.gia:,.0f} VNĐ"
+
+class HangDienMay(HangHoa):
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia, tg_baohanh, dien_ap, cong_suat):
+        super().__init__(ma_hang, ten_hang, nha_sx, gia)
+        self.tg_baohanh = tg_baohanh
+        self.dien_ap = dien_ap
+        self.cong_suat = cong_suat
+
+    def hien_thi_thong_tin(self):
+        info = super().hien_thi_thong_tin()
+        return f"[ĐIỆN MÁY] {info} | Bảo hành: {self.tg_baohanh} tháng | Điện áp: {self.dien_ap}V | Công suất: {self.cong_suat}W"
+
+class HangSanhSu(HangHoa):
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia, loai_nguyenlieu):
+        super().__init__(ma_hang, ten_hang, nha_sx, gia)
+        self.loai_nguyenlieu = loai_nguyenlieu
+
+    def hien_thi_thong_tin(self):
+        info = super().hien_thi_thong_tin()
+        return f"[SÀNH SỨ]  {info} | Nguyên liệu: {self.loai_nguyenlieu}"
+
+class HangThucPham(HangHoa):
+    def __init__(self, ma_hang, ten_hang, nha_sx, gia, ngay_sx, ngay_hethan):
+        super().__init__(ma_hang, ten_hang, nha_sx, gia)
+        self.ngay_sx = ngay_sx
+        self.ngay_hethan = ngay_hethan
+
+    def hien_thi_thong_tin(self):
+        info = super().hien_thi_thong_tin()
+        return f"[THỰC PHẨM] {info} | NSX: {self.ngay_sx} | HSD: {self.ngay_hethan}"
