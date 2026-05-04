@@ -1,0 +1,59 @@
+class NhanVien:
+LUONG_CO_SO = 5000000 
+
+    def __init__(self, ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max):
+        self.ma_nv = ma_nv
+        self.ho_ten = ho_ten
+        self.nam_sinh = nam_sinh
+        self.gioi_tinh = gioi_tinh
+        self.dia_chi = dia_chi
+        self.he_so_luong = he_so_luong if he_so_luong > 0 else 1.0
+        self.luong_max = luong_max
+
+    def tinh_thu_nhap(self):
+        thu_nhap = self.he_so_luong * self.LUONG_CO_SO
+        return min(thu_nhap, self.luong_max)
+
+    def xuat_thong_tin(self):
+        print(f"[{self.__class__.__name__}]")
+        print(f"Mã NV: {self.ma_nv} | Họ tên: {self.ho_ten} | Giới tính: {self.gioi_tinh}")
+        print(f"Địa chỉ: {self.dia_chi} | Hệ số: {self.he_so_luong}")
+        print(f"Thu nhập: {self.tinh_thu_nhap():,.0f} VNĐ (Tối đa: {self.luong_max:,.0f} VNĐ)") 
+
+class CongTacVien(NhanVien):
+    def __init__(self, ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max, thoi_han_hd, phu_cap_ld):
+        super().__init__(ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max)
+        valid_terms = ["3 tháng", "6 tháng", "1 năm"]
+        self.thoi_han_hd = thoi_han_hd if thoi_han_hd in valid_terms else "3 tháng"
+        self.phu_cap_ld = phu_cap_ld
+def tinh_thu_nhap(self):
+        """Thu nhập CTV = (Hệ số * Lương cơ sở) + Phụ cấp lao động"""
+        thu_nhap = (self.he_so_luong * self.LUONG_CO_SO) + self.phu_cap_ld
+        return min(thu_nhap, self.luong_max)
+
+    def xuat_thong_tin(self):
+        super().xuat_thong_tin()
+        print(f"Thời hạn hợp đồng: {self.thoi_han_hd} | Phụ cấp lao động: {self.phu_cap_ld:,.0f} VNĐ")
+
+class NhanVienChinhThuc(NhanVien):
+    def __init__(self, ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max, vi_tri_cong_viec):
+        super().__init__(ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max)
+        self.vi_tri_cong_viec = vi_tri_cong_viec
+
+    def xuat_thong_tin(self):
+        super().xuat_thong_tin()
+        print(f"Vị trí công việc: {self.vi_tri_cong_viec}")
+
+class TruongPhong(NhanVien):
+    def __init__(self, ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max, ngay_bat_dau_ql, phu_cap_ql):
+        super().__init__(ma_nv, ho_ten, nam_sinh, gioi_tinh, dia_chi, he_so_luong, luong_max)
+        self.ngay_bat_dau_ql = ngay_bat_dau_ql
+        self.phu_cap_ql = phu_cap_ql
+
+def tinh_thu_nhap(self):
+thu_nhap = (self.he_so_luong * self.LUONG_CO_SO) + self.phu_cap_ql
+        return min(thu_nhap, self.luong_max)
+
+    def xuat_thong_tin(self):
+        super().xuat_thong_tin()
+        print(f"Ngày quản lý: {self.ngay_bat_dau_ql} | Phụ cấp quản lý: {self.phu_cap_ql:,.0f} VNĐ")
