@@ -1,0 +1,42 @@
+class CanBo:
+   def __init__(self, ten, tuoi, gt, dc):
+        self.ten, self.tuoi, self.gt, self.dc = ten, tuoi, gt, dc
+
+class CongNhan(CanBo):
+    def __init__(self, ten, tuoi, gt, dc, bac):
+        super().__init__(ten, tuoi, gt, dc)
+        self.bac = bac
+
+class KySu(CanBo):
+    def __init__(self, ten, tuoi, gt, dc, nganh):
+        super().__init__(ten, tuoi, gt, dc)
+        self.nganh = nganh
+
+class NhanVien(CanBo):
+    def __init__(self, ten, tuoi, gt, dc, cv):
+        super().__init__(ten, tuoi, gt, dc)
+        self.cv = cv
+
+    def __eq__(self, other):
+        ps1 = self.toi_gian()
+        ps2 = other.toi_gian()
+        return ps1.tu_so == ps2.tu_so and ps1.mau_so == ps2.mau_so
+
+    def __lt__(self, other):
+        return self.tu_so * other.mau_so < other.tu_so * self.mau_so
+
+    def __gt__(self, other):
+        return self.tu_so * other.mau_so > other.tu_so * self.mau_so    
+    
+    def __str__(self):
+        ps = self.toi_gian()
+        if ps.mau_so == 1:
+            return f"{ps.tu_so}"
+        return f"{ps.tu_so}/{ps.mau_so}"
+
+    def __repr__(self):
+        return f"PhanSo({self.tu_so}, {self.mau_so})"
+
+    def __hash__(self):
+        ps = self.toi_gian()
+        return hash((ps.tu_so, ps.mau_so))
